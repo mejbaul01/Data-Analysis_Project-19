@@ -1,0 +1,45 @@
+create Table Sales(
+	EmpID int Primary key,
+    EmpName varchar(50),
+    City Varchar(50),
+    Revenue decimal(10,2)
+
+);
+
+
+
+
+insert into Sales
+Values
+(101, "Kamal" ,'Dhaka', 10000),
+(102, "Jamal","Khulna" , 14000 ),
+(103, "Polas" , "Dhaka", 7500),
+(104, "Mamun" , "rajsahi", 19000),
+(105, "Ratan" ,"Dhaka", 22000),
+(106, "Milon" ,"Khulna", 13000);
+
+
+select * from Sales;
+
+
+select *
+from (select empName,Revenue,City,
+Row_number()
+over(order by revenue desc) as Unique_rank
+from Sales) as T
+
+where Unique_rank <=3
+
+
+
+
+
+
+update sales
+set Revenue = 14000.00
+where EmpID = 103
+
+
+
+
+
